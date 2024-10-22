@@ -13,4 +13,10 @@ export class AppComponent {
   title: string = 'Hola mundo angular desde el componente!!!';
 
   users: string[] = ['pepe', 'juan', 'ana', 'pedro'];
+
+  visible: boolean = false;
+
+  setVisible():void {
+    this.visible = !this.visible;
+  }
 }
