@@ -1,9 +1,36 @@
-<div *ngIf="visible; else notEnable">
-  <h2> {{ title }} </h2>
-</div>
 <button (click)="setVisible()">
   {{visible ? 'Ocultar' : 'Mostrar'}}
 </button>
+@if (visible) {
+  <h2> {{title}} </h2>
+  
+  @if (users != undefined && users.length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track $index) {
+          <tr>
+            <td>{{ $index +1 }}</td>
+            <td>{{ user }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>no existen registros</p>
+  }
+} @else{
+  <h2>no se puede mostrar componente</h2>
+}
+
+
+<!-- <div *ngIf="visible; else notEnable">
+  <h2> {{ title }} </h2>
+</div>
 <div *ngIf="visible">
   <table *ngIf="(users != undefined && users.length > 0) else isEmpty">
     <thead>
@@ -29,4 +56,4 @@
   <div>
     No se puede mostrar el componente
   </div>
-</ng-template>
+</ng-template> -->
