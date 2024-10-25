@@ -3,6 +3,9 @@
 </button>
 @if (visible) {
   <h2> {{title}} </h2>
+  <div>
+    total: {{counter}}
+  </div>
   
   @if (users != undefined && users.length > 0) {
     <table>
@@ -27,7 +30,7 @@
   <h2>no se puede mostrar componente</h2>
 }
 
-<app-counter [title]="subtitle">
+<app-counter [title]="subtitle" (counterEmit)="setCounter($event)">
   
 </app-counter>
 

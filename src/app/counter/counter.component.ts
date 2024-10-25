@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { emit } from 'process';
 
 @Component({
   selector: 'app-counter',
@@ -11,6 +12,8 @@ export class CounterComponent implements OnInit{
 
   @Input() title!: string;
 
+  @Output() counterEmit: EventEmitter<number> = new EventEmitter();
+
   ngOnInit(): void {
     this.counter = parseInt(localStorage.getItem('counter')!) || 0;
     console.log('creando componentes')
@@ -20,6 +23,7 @@ export class CounterComponent implements OnInit{
   setCounter(): void {
     this.counter++;
     localStorage.setItem('counter', this.counter.toString());
+    this.counterEmit.emit(this.counter);
   }
 
 }
