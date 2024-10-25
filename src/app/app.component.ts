@@ -13,6 +13,8 @@ import { CounterComponent } from './counter/counter.component';
 export class AppComponent {
   title: string = 'Hola mundo angular desde el componente!!!';
 
+  subtitle: string = 'Contador con estado de session'
+
   users: string[] = ['pepe', 'juan', 'ana', 'pedro'];
 
   visible: boolean = false;

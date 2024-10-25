@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CounterComponent implements OnInit{
   counter: number = 0;
 
+  @Input() title!: string;
 
   ngOnInit(): void {
     this.counter = parseInt(localStorage.getItem('counter')!) || 0;
